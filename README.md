@@ -5,5 +5,5 @@ wepy 手势密码 ios 安卓 真正的无卡顿
   
  交流分享 
  
- 
+ [png](https://github.com/t5442107/yj_wepy_gesture_lock/blob/master/1.png?raw=true)
 
