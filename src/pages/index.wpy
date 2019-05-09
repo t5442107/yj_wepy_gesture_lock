@@ -1,239 +1,384 @@
 <style lang="less">
-  .userinfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+page {
+  background-color: #445c95;
+  height: 100%;
+}
+
+.sample {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+
+.gesture-lock {
+  background-color: #445c95;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.gesture-lock-sample {
+  margin: 10rpx auto;
+  background-color: #445c95;
+}
+
+.avatar-wrap {
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.avatar-people {
+  width: 124rpx;
+  height: 124rpx;
+  overflow: hidden;
+  border: 1px solid #445c95;
+  border-radius: 124rpx;
+  background-size: contain;
+}
+
+.nickname {
+  color: #f0f0f0;
+  font-size: 28rpx;
+  height: 32rpx;
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.errmsg {
+  color: #f29360;
+  font-size: 28rpx;
+  height: 32rpx;
+  margin-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.zhiwen-pic {
+  height: 96rpx;
+  width: 96rpx;
+  margin-top: 120rpx;
+}
+
+.zhiwen-txt {
+  color: #90aae1;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.bt-choice {
+  color: #a0bcff;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  margin-top: 40rpx;
+}
+.pop-bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pop {
+  border-radius: 12rpx;
+  width: 540rpx;
+  max-height: 72%;
+  color: #374b79;
+  box-shadow: 0 0 12rpx rgba(12, 2, 3, 0.6);
+  background: #fff;
+  overflow: hidden;
+}
+
+.pop .hd {
+  position: relative;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #445c95;
+}
+
+.pop .hd .close {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  top: 16rpx;
+  right: 16rpx;
+}
+
+.pop .hd .close::before {
+  content: '';
+  display: block;
+  width: 32rpx;
+  height: 32rpx;
+  margin: 12rpx 0 0 10rpx;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAGFBMVEUAAACsssGsssGsssGsssGsssGsssGsssFAXB5+AAAAB3RSTlMAAZCRz35UDYuIxAAAALFJREFUOMu90zsKwzAQhOG4SS2cE7hKnSonCLlAIG269Hl4r2/QDgziZ1ur0cqaz6CFPeyzjrc2fpger76/Yxkv5lj7fo9PG8A5fr14RhKD+PfiFEkM4pLVNYnBVzkTAxMAEwARAWdMBBQxITARIBEAESARIBEgESARACFQl4qL2b8CIFGX8vkEizoG0CYSdYlEXRIBEAFwAsARnJzxgcS1UwCOuQIpBqcYtWo463HeZW3YbWRo9Hmb0wAAAABJRU5ErkJggg==')
+    center / contain no-repeat;
+}
+
+.pop .qx-box {
+  position: relative;
+  padding: 30rpx;
+  text-align: left;
+}
+
+.pop .qx-v {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  padding: 20rpx 0;
+}
+
+.pop .qx-s {
+  display: block;
+}
+
+.pop .qx-k {
+  padding: 0 20rpx 20rpx;
+  font-size: 24rpx;
+  color: #acb2c1;
+  text-align: center;
+}
+
+.pop .qx-m {
+  padding: 40rpx;
+  font-size: 28rpx;
+  color: #acb2c1;
+  text-align: center;
+}
+
+.qx-box .dd {
+  color: #acb2c1;
+  padding-top: 30rpx;
+}
+
+.qx-box .dd .wd {
+  color: #374b79;
+  font-size: 32rpx;
+}
+
+.qx-box .qx-icon {
+  display: block;
+  margin: 0 auto;
+  height: 64rpx;
+  width: 64rpx;
+}
+
+.qx-box .qx-msg {
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.qx-box .qx-desc {
+  padding-bottom: 10rpx;
+  min-height: 46rpx;
+  max-height: 400rpx;
+  line-height: 36rpx;
+  font-size: 28rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.pop .qx-menu {
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #3399eb;
+}
+
+.qx-menu .item {
+  font-size: 32rpx;
+}
+
+.qx-menu button.item {
+  line-height: 88rpx;
+  border-width: 0;
+  border-style: none;
+  border-radius: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.pop-bg .pop {
+  animation: scaleOut 0.1s ease-in-out both;
+}
+
+.pop-bg.active .pop {
+  animation: scaleIn 0.2s ease-in-out both;
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    -webkit-transform: scale(0.8);
+    opacity: 0;
   }
 
-  .userinfo-avatar {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
+  to {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
   }
 
-  .userinfo-nickname {
-    color: #aaa;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
+}
+
+button[plain].plain-button-hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+}
+.ui-password-bg {
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.ui-password-keyboard {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.ui-password-keyboard .table {
+  width: 100%;
+}
+
+.ui-password-keyboard .table .td {
+  height: 108rpx;
+  line-height: 108rpx;
+  text-align: center;
+  color: #000;
+  font-size: 52rpx;
+  cursor: pointer;
+}
+
+.ui-password-keyboard .table .o,
+.ui-password-keyboard .table .del {
+  background-color: #f3f3f3;
+}
+
+.del {
+  background-size: 44rpx 30rpx;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAgCAMAAABuFHtpAAAAM1BMVEUAAABRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVEMnAvmAAAAEHRSTlMAYgvDwtmkJfKtFITz77mAEh2agwAAAJtJREFUOMud1csOgyAUhOGhVY54aef9n7YLCEmnoer8G918IdwCvnts08KTlhKqJl7pCEeRxVLcLUV6ip6ipzhWc+6/eaY0VisSawmruqqe/CkDSE0BWVlXWqqufSVV6lS1VKmLroRt5B/XlbIXxwWAoGSMZs7NX0l/3/xT0pxxJqszbkB1N4Ln4Dl4DpbbYbkCxx0Bce9rL47ZB97tUPSGlHObAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.register .ui-password-keyboard {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.ui-action-sheet .action-sheet-content .ui-password-keyboard {
+  position: absolute;
+  bottom: 0;
+}
+
+.ui-view-ix .ui-password-bg {
+  border-bottom: 34px solid #f3f3f3;
+}
 </style>
 <template>
-  <view class="container">
-    <view class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
-    </view>
 
-    <panel>
-      <view class="title" slot="title">测试数据绑定</view>
+  <canvas
+    disableScroll
+    binderror="onBigCanvasError"
+    bindtouchend="onTouchEnd"
+    bindtouchmove="onTouchMove"
+    bindtouchstart="onTouchStart"
+    canvasId="id-gesture-lock"
+    class="gesture-lock"
+    style="width:{{wWidth}}px;height:{{hHeight}}px;"
+  ></canvas>
 
-      <text class="info">{{normalTitle}}</text>
-      <text class="info">{{setTimeoutTitle}}</text>
-      <text class="info">{{mixin}}</text>
-      <text class="info">{{mynum}}</text>
-      <text class="info">{{now}}</text>
-      <button @tap="plus('a')" size="mini">  +  </button>
-    </panel>
-
-    <panel>
-      <view class="title" slot="title">其它测试</view>
-      <button @tap="toast" size="mini">第三方组件</button>
-      <button @tap="communicate" size="mini">组件通信</button>
-      <button @tap="tap" size="mini">混合TAP事件</button>
-    </panel>
-
-    <panel>
-      <view class="title" slot="title">测试并发网络请求</view>
-      <view>返回结果: <text>{{netrst}}</text></view>
-      <button @tap="request" size="mini"> 点我发起10个请求 </button>
-    </panel>
-
-    <panel>
-      <view class="title" slot="title">测试组件</view>
-
-      <text class="testcounter">计数组件1: </text>
-      <view class="counterview">
-        <counter1 @index-emit.user="counterEmit" />
-      </view>
-
-      <text class="testcounter">计数组件2: </text>
-
-      <view class="counterview">
-        <counter2 :num.sync="mynum"></counter2>
-      </view>
-    </panel>
-
-    <panel>
-      <view class="title" slot="title">测试组件Repeat</view>
-      <repeat for="" index="index" item="item" key="key">
-        <group :grouplist="item" :indexa="index"></group>
-      </repeat>
-    </panel>
-
-    <panel>
-      <view class="title" slot="title">测试列表</view>
-      <list></list>
-    </panel>
-
-    <toast />
-  </view>
-</template>
+</template> 
 
 <script>
-  import wepy from 'wepy'
-  import Panel from '@/components/panel' // alias example
-  import Counter from 'counter' // alias example
-  import List from '../components/list' // aliasFields example
-  import moduleA from 'module-a' // aliasFields ignore module example
-  import Group from '../components/group'
-  import Toast from 'wepy-com-toast'
-  import testMixin from '../mixins/test'
+import wepy from 'wepy';
 
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+import GestureLock from '../components/yj_gesture_lock.js';
 
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'yj 最强手势密码'
+  };
+  components = {};
 
-  export default class Index extends wepy.page {
-    config = {
-      navigationBarTitleText: 'test'
+  data = {
+    wWidth: 375,
+    hHeight: 375,
+    settingGesturePasswordTip: '',
+    settingGesturePasswordErrTip: '',
+    handlePassWordType: 0,
+    lock: null
+  };
+
+  computed = {
+    now() {
+      return +new Date();
     }
-    components = {
-      panel: Panel,
-      counter1: Counter,
-      counter2: Counter,
-      list: List,
-      group: Group,
-      toast: Toast
+  };
+
+  methods = {
+    onTouchStart: function(e) {
+      this.lock.onTouchStart(e);
+    },
+    onTouchMove: function(e) {
+      this.lock.onTouchMove(e);
+    },
+    onTouchEnd: function(e) {
+      this.lock.onTouchEnd(e);
+    },
+    onSimpleCanvasError: function(e) {
+      console.error(e.detail.errMsg);
+    },
+    onBigCanvasError: function(e) {
+      console.error(e.detail.errMsg);
     }
+  };
 
-    mixins = [testMixin]
+  onLoad() { 
+    var lock = new GestureLock(
+      'id-gesture-lock',
+      wepy.createCanvasContext('id-gesture-lock'),
+      function(t, a) {
+        setTimeout(() => { 
+          this.reset();
+        }, 500);
 
-    data = {
-      mynum: 20,
-      userInfo: {
-        nickName: '加载中...'
+        console.log('tt=', t);
+        console.log('aa=', a);
       },
-      normalTitle: '原始标题',
-      setTimeoutTitle: '标题三秒后会被修改',
-      count: 0,
-      netrst: '',
-      groupList: [
-        {
-          id: 1,
-          name: '点击改变',
-          list: [
-            {
-              childid: '1.1',
-              childname: '子项，点我改变'
-            }, {
-              childid: '1.2',
-              childname: '子项，点我改变'
-            }, {
-              childid: '1.3',
-              childname: '子项，点我改变'
-            }
-          ]
-        },
-        {
-          id: 2,
-          name: '点击改变',
-          list: [
-            {
-              childid: '2.1',
-              childname: '子项，点我改变'
-            }, {
-              childid: '2.2',
-              childname: '子项，点我改变'
-            }, {
-              childid: '2.3',
-              childname: '子项，点我改变'
-            }
-          ]
-        },
-        {
-          id: 3,
-          name: '点击改变',
-          list: [
-            {
-              childid: '3.1',
-              childname: '子项，点我改变'
-            }
-          ]
-        }
-      ]
-    }
-
-    computed = {
-      now () {
-        return +new Date()
+      {
+        width: 299,
+        height: 299,
+        margeCircle: parseInt(35 * 1.1),
+        pointlineWidth: 3,
+        circleCentreRadius: 8
       }
-    }
-
-    methods = {
-      plus () {
-        this.mynum++
-      },
-      toast () {
-        let promise = this.$invoke('toast', 'show', {
-          title: '自定义标题',
-          img: 'https://raw.githubusercontent.com/kiinlam/wetoast/master/images/star.png'
-        })
-
-        promise.then((d) => {
-          console.log('toast done')
-        })
-      },
-      tap () {
-        console.log('do noting from ' + this.$name)
-      },
-      communicate () {
-        console.log(this.$name + ' tap')
-
-        this.$invoke('counter2', 'minus', 45, 6)
-        this.$invoke('counter1', 'plus', 45, 6)
-
-        this.$broadcast('index-broadcast', 1, 3, 4)
-      },
-      request () {
-        let self = this
-        let i = 10
-        let map = ['MA==', 'MQo=', 'Mg==', 'Mw==', 'NA==', 'NQ==', 'Ng==', 'Nw==', 'OA==', 'OQ==']
-        while (i--) {
-          wepy.request({
-            url: 'https://www.madcoder.cn/tests/sleep.php?time=1&t=css&c=' + map[i] + '&i=' + i,
-            success: function (d) {
-              self.netrst += d.data + '.'
-              self.$apply()
-            }
-          })
-        }
-      },
-      counterEmit (...args) {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
-    }
-
-    events = {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
-    }
-
-    onLoad() {
-      let self = this
-      this.$parent.getUserInfo(function (userInfo) {
-        if (userInfo) {
-          self.userInfo = userInfo
-        }
-        self.normalTitle = '标题已被修改'
-
-        self.setTimeoutTitle = '标题三秒后会被修改'
-        setTimeout(() => {
-          self.setTimeoutTitle = '到三秒了'
-          self.$apply()
-        }, 3000)
-
-        self.$apply()
-      })
-    }
+    );
+    lock.drawGestureLock();
+    this.lock = lock;
   }
+}
 </script>
